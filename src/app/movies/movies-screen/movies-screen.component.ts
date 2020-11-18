@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Movie} from '../../core/models/movie';
+import {MovieService} from '../movie.service';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-movies-screen',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesScreenComponent implements OnInit {
 
-  constructor() { }
+  movies$: Movie[];
+
+  constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
+    this.movieService.getMovies().pipe(first()).subscribe( moviesData => {
+      this.movies$ = moviesData;
+    });
   }
 
 }
