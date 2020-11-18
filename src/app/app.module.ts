@@ -8,19 +8,21 @@ import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {HttpClientModule} from '@angular/common/http';
+import { MovieCardComponent } from './movies/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesScreenComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    MovieCardComponent
   ],
     imports: [
       BrowserModule,
       AppRoutingModule,
       RouterModule,
       HttpClientModule,
-      MDBBootstrapModule.forRoot()
+      MDBBootstrapModule
     ],
   providers: [],
   bootstrap: [AppComponent]
