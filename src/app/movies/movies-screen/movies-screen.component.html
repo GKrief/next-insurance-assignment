@@ -1,1 +1,7 @@
-<p>movies-screen works!</p>
+<div class="w-75 mx-auto">
+  <div class="row">
+    <app-movie-card *ngFor="let movie of movies$" class="col-2 mt-3"
+                    [movieSmallImage]="movie.smallImageUrl" [movieTitle]="movie.title" [movieId]="movie.id">
+    </app-movie-card>
+  </div>
+</div>
