@@ -7,6 +7,7 @@ import { MovieDetailsComponent } from './movies/movie-details/movie-details.comp
 import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,10 +16,11 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
     MovieDetailsComponent
   ],
     imports: [
-        BrowserModule,
-        AppRoutingModule,
-        RouterModule,
-        MDBBootstrapModule.forRoot()
+      BrowserModule,
+      AppRoutingModule,
+      RouterModule,
+      HttpClientModule,
+      MDBBootstrapModule.forRoot()
     ],
   providers: [],
   bootstrap: [AppComponent]
