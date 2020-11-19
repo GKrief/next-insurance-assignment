@@ -3,7 +3,7 @@ import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Movie} from '../core/models/movie';
-import {map} from 'rxjs/operators';
+import {first, map} from 'rxjs/operators';
 import {
   ID_HEADER, LARGE_IMG_HEADER,
   RATING_HEADER,
@@ -20,8 +20,10 @@ import {
 export class MovieService {
 
   private readonly MOVIES_URL = environment.movies_url;
+  movies$: Movie[];
 
   constructor(private http: HttpClient) {
+    this.getMovies().pipe(first()).subscribe(moviesRawData => this.movies$ = moviesRawData);
   }
 
   public getMovies(): Observable<Movie[]> {
@@ -33,7 +35,12 @@ export class MovieService {
   }
 
   private createMovieInstance(movieData: any): Movie {
-    return new Movie(movieData[ID_HEADER], movieData[TITLE_HEADER], movieData[SYNOPSIS_HEADER], movieData[RATING_HEADER],
-      movieData[RELEASED_HEADER], movieData[RUNTIME_HEADER], movieData[SMALL_IMG_HEADER], movieData[LARGE_IMG_HEADER]);
+    return new Movie(parseInt(movieData[ID_HEADER], 10), movieData[TITLE_HEADER], movieData[SYNOPSIS_HEADER],
+      parseFloat(movieData[RATING_HEADER]), movieData[RELEASED_HEADER], movieData[RUNTIME_HEADER],
+      movieData[SMALL_IMG_HEADER], movieData[LARGE_IMG_HEADER]);
+  }
+
+  public getMovieById(movieId: number): Movie { // TODO: should get string?
+    return this.movies$.find(movie => movie.id === movieId);
   }
 }
