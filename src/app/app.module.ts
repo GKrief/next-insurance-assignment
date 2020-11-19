@@ -9,13 +9,17 @@ import {RouterModule} from '@angular/router';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {HttpClientModule} from '@angular/common/http';
 import { MovieCardComponent } from './movies/movie-card/movie-card.component';
+import { MovieLengthPipe } from './core/pipes/movie-length.pipe';
+import { SanitizeHtmlPipe } from './core/pipes/sanitize-html.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesScreenComponent,
     MovieDetailsComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    MovieLengthPipe,
+    SanitizeHtmlPipe
   ],
     imports: [
       BrowserModule,
