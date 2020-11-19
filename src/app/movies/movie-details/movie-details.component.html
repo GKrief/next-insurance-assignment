@@ -1,1 +1,11 @@
-<p>movie-details works!</p>
+<div class="alert alert-light text-right mt-2 mr-5" role="alert">
+  <button mdbBtn [routerLink]="['/movies']">Back to All Movies </button>
+</div>
+<div class="d-flex flex-row">
+  <img class="w-25 p-3 img-fluid card-img-top" src="{{selectedMovie.largeImageUrl}}" alt="{{selectedMovie.title}} image">
+  <div class="text-left card-body">
+    <h1 class="card-title">{{selectedMovie.title}}</h1>
+    <h3>Movie Year: {{selectedMovie.released}} | Movie length: {{selectedMovie.runtime | movieLength}} | Movie rating: {{selectedMovie.rating}}</h3>
+    <h5>{{selectedMovie.synopsis | sanitizeHtml}}</h5>
+  </div>
+</div>
