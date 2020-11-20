@@ -1,5 +1,5 @@
 export class Movie {
-  id: number;
+  id: string;
   title: string;
   synopsis: string;
   rating: number;
@@ -9,7 +9,7 @@ export class Movie {
   largeImageUrl: string;
 
 
-  constructor(id: number, title: string, synopsis: string, rating: number, released: number, runtime: string,
+  constructor(id: string, title: string, synopsis: string, rating: number, released: number, runtime: string,
               smallImageUrl: string, largeImageUrl: string) {
     this.id = id;
     this.title = title;
