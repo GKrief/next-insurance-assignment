@@ -11,6 +11,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { MovieCardComponent } from './movies/movie-card/movie-card.component';
 import { MovieLengthPipe } from './core/pipes/movie-length.pipe';
 import { SanitizeHtmlPipe } from './core/pipes/sanitize-html.pipe';
+import { SearchBarComponent } from './movies/search-bar/search-bar.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,15 +21,17 @@ import { SanitizeHtmlPipe } from './core/pipes/sanitize-html.pipe';
     MovieDetailsComponent,
     MovieCardComponent,
     MovieLengthPipe,
-    SanitizeHtmlPipe
+    SanitizeHtmlPipe,
+    SearchBarComponent
   ],
-    imports: [
-      BrowserModule,
-      AppRoutingModule,
-      RouterModule,
-      HttpClientModule,
-      MDBBootstrapModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    HttpClientModule,
+    MDBBootstrapModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
