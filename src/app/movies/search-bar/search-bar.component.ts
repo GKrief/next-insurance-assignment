@@ -14,7 +14,7 @@ export class SearchBarComponent implements OnInit {
   }
 
 
-  onChange($event: string): void {
+  onChange(): void {
     this.searchValueEmitter.emit(this.searchValue);
   }
 }
