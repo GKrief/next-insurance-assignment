@@ -15,9 +15,10 @@ export class MoviesScreenComponent implements OnInit {
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.movieService.getMovies().pipe(first()).subscribe( moviesData => {
-      this.movies$ = moviesData;
-    });
+    this.movieService.getMovies().pipe(first()).subscribe( moviesData => this.movies$ = moviesData);
   }
 
+  onSearchUpdated(searchString: string): void {
+    this.movies$ = this.movieService.getMoviesBySearch(searchString);
+  }
 }
