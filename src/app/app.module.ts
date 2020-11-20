@@ -13,6 +13,7 @@ import { MovieLengthPipe } from './core/pipes/movie-length.pipe';
 import { SanitizeHtmlPipe } from './core/pipes/sanitize-html.pipe';
 import { SearchBarComponent } from './movies/search-bar/search-bar.component';
 import {FormsModule} from '@angular/forms';
+import { FilterBySearchPipe } from './core/pipes/filter-by-search.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {FormsModule} from '@angular/forms';
     MovieCardComponent,
     MovieLengthPipe,
     SanitizeHtmlPipe,
-    SearchBarComponent
+    SearchBarComponent,
+    FilterBySearchPipe
   ],
   imports: [
     BrowserModule,
