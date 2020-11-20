@@ -43,4 +43,8 @@ export class MovieService {
   public getMovieById(movieId: number): Movie { // TODO: should get string?
     return this.movies$.find(movie => movie.id === movieId);
   }
+
+  getMoviesBySearch(searchString: string): Movie[] {
+    return this.movies$.filter(movie => movie.title.toLowerCase().includes(searchString.toLowerCase()));
+  }
 }
