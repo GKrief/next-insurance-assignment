@@ -1,5 +1,5 @@
 <div class="d-flex mt-5 ml-3">
-  <h4 class="mr-3">Search Movie(s): </h4>
+  <h4 class="mr-3 mt-1">Search Movie(s): </h4>
   <div class="form-group">
     <select class="form-control" [(ngModel)]="searchCriteria.searchOption" (ngModelChange)="onSearchOptionChange($event)">
       <option *ngFor="let option of SEARCH_OPTIONS">{{option}}</option>
