@@ -22,7 +22,8 @@ export class MovieService {
   movies$: Movie[] = [];
 
   constructor(private http: HttpClient) {
-    this.getMovies().pipe(first()).subscribe( movies => this.movies$ = movies);
+    this.getMovies().pipe(first()).subscribe( movies => this.movies$ = movies,
+      () => window.alert('Something went wrong! Server did not respond'));
   }
 
   private getMovies(): Observable<Movie[]> {
