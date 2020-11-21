@@ -1,5 +1,18 @@
-<div class="justify-content-center w-25 form-inline md-form form-sm">
-  <mdb-icon fas icon="search" aria-hidden="true"></mdb-icon>
-  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search"
-         mdbInput [(ngModel)]="searchValue" (ngModelChange)="onChange()">
+<div class="d-flex">
+  <div class="form-group">
+    <h4>Choose search criteria: </h4>
+    <select class="form-control" [(ngModel)]="searchCriteria.searchOption" (ngModelChange)="onSearchOptionChange($event)">
+      <option *ngFor="let option of SEARCH_OPTIONS">{{option}}</option>
+    </select>
+  </div>
+  <div class="mt-5 justify-content-center w-25 form-inline md-form">
+    <mdb-icon fas icon="search"></mdb-icon>
+        <input appOnlyNumbers [shouldAllowOnlyNumbers]="isSearchByRating()"
+               class="ml-3 w-75"
+               type="text"
+               [placeholder]="isSearchByRating() ? 'Show me movies with at least rating of...' : 'Show me the movie...'"
+               mdbInput
+               [(ngModel)]="searchCriteria.searchValue"
+               (ngModelChange)="onSearchValueChange()">
+  </div>
 </div>
