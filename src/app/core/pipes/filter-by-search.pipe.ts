@@ -8,18 +8,19 @@ import {SearchOptions} from '../enums/search-options.enum';
 export class FilterBySearchPipe implements PipeTransform {
 
   transform(movies: Movie[], searchOption: SearchOptions, searchValue: string): Movie[] {
-    if (searchOption === SearchOptions.ByTitle) {
-      if (!movies) {
-        return movies;
-      }
-
-      return movies.filter(movie => movie.title.toLowerCase().includes(searchValue.toLowerCase()));
-    } else { // by rating
-      if (!movies || searchValue === '') {
-        return movies;
-      }
-
-      return movies.filter(movie => movie.rating >= parseFloat(searchValue));
+    if (!movies || searchValue === '') {
+      return movies;
     }
+
+    return movies.filter(this.getSearchOptions(searchOption, searchValue));
+  }
+
+  private getSearchOptions(searchOption: SearchOptions, searchValue: string): (movie: Movie) => boolean {
+    const searchFunctions = {
+      [SearchOptions.ByTitle]: movie => movie.title.toLowerCase().includes(searchValue.toLowerCase()),
+      [SearchOptions.ByRating]: movie => movie.rating >= parseFloat(searchValue),
+    };
+
+    return searchFunctions[searchOption];
   }
 }
