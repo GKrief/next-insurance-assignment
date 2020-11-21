@@ -18,15 +18,14 @@ import {
   providedIn: 'root'
 })
 export class MovieService {
-
   private readonly MOVIES_URL = environment.movies_url;
-  movies$: Movie[];
+  movies$: Movie[] = [];
 
   constructor(private http: HttpClient) {
-    this.getMovies().pipe(first()).subscribe(moviesRawData => this.movies$ = moviesRawData);
+    this.getMovies().pipe(first()).subscribe( movies => this.movies$ = movies);
   }
 
-  public getMovies(): Observable<Movie[]> {
+  private getMovies(): Observable<Movie[]> {
     return this.http.get<any>(this.MOVIES_URL).pipe(
       map(response => {
         return response.map(movieData => this.createMovieInstance(movieData));
@@ -35,16 +34,12 @@ export class MovieService {
   }
 
   private createMovieInstance(movieData: any): Movie {
-    return new Movie(parseInt(movieData[ID_HEADER], 10), movieData[TITLE_HEADER], movieData[SYNOPSIS_HEADER],
+    return new Movie(movieData[ID_HEADER], movieData[TITLE_HEADER], movieData[SYNOPSIS_HEADER],
       parseFloat(movieData[RATING_HEADER]), movieData[RELEASED_HEADER], movieData[RUNTIME_HEADER],
       movieData[SMALL_IMG_HEADER], movieData[LARGE_IMG_HEADER]);
   }
 
-  public getMovieById(movieId: number): Movie { // TODO: should get string?
+  public getMovieById(movieId: string): Movie {
     return this.movies$.find(movie => movie.id === movieId);
-  }
-
-  getMoviesBySearch(searchString: string): Movie[] {
-    return this.movies$.filter(movie => movie.title.toLowerCase().includes(searchString.toLowerCase()));
   }
 }
