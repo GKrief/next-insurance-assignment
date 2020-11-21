@@ -10,7 +10,6 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {HttpClientModule} from '@angular/common/http';
 import { MovieCardComponent } from './movies/main-screen/movie-card/movie-card.component';
 import { MovieLengthPipe } from './core/pipes/movie-length.pipe';
-import { SanitizeHtmlPipe } from './core/pipes/sanitize-html.pipe';
 import { SearchBarComponent } from './movies/main-screen/search-bar/search-bar.component';
 import {FormsModule} from '@angular/forms';
 import { FilterBySearchPipe } from './core/pipes/filter-by-search.pipe';
@@ -24,7 +23,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MovieDetailsComponent,
     MovieCardComponent,
     MovieLengthPipe,
-    SanitizeHtmlPipe,
     SearchBarComponent,
     FilterBySearchPipe,
     OnlyNumbersDirective,

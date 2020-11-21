@@ -35,9 +35,16 @@ export class MovieService {
   }
 
   private createMovieInstance(movieData: any): Movie {
-    return new Movie(movieData[ID_HEADER], movieData[TITLE_HEADER], movieData[SYNOPSIS_HEADER],
-      parseFloat(movieData[RATING_HEADER]), movieData[RELEASED_HEADER], movieData[RUNTIME_HEADER],
-      movieData[SMALL_IMG_HEADER], movieData[LARGE_IMG_HEADER]);
+    return new Movie(movieData[ID_HEADER], this.parseHtmlEncodings(movieData[TITLE_HEADER]),
+      this.parseHtmlEncodings(movieData[SYNOPSIS_HEADER]), parseFloat(movieData[RATING_HEADER]), movieData[RELEASED_HEADER],
+      movieData[RUNTIME_HEADER], movieData[SMALL_IMG_HEADER], movieData[LARGE_IMG_HEADER]);
+  }
+
+  private parseHtmlEncodings(encodedString: string): string {
+    return encodedString
+      .replace('&#39;', '\'')
+      .replace('&quot;', '"')
+      .replace('<br>', '\n');
   }
 
   public getMovieById(movieId: string): Movie {
