@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {MoviesScreenComponent} from './movies/movies-screen/movies-screen.component';
 import {MovieDetailsComponent} from './movies/movie-details/movie-details.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   {
@@ -17,8 +18,15 @@ const appRoutes: Routes = [
     path: '',
     redirectTo: '/movies',
     pathMatch: 'full'
+  },
+  {
+    path: '404',
+    component: PageNotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/404'
   }
-  // TODO: add PageNotFound (404) and **
 ];
 
 @NgModule({

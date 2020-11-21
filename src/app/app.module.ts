@@ -15,6 +15,7 @@ import { SearchBarComponent } from './movies/search-bar/search-bar.component';
 import {FormsModule} from '@angular/forms';
 import { FilterBySearchPipe } from './core/pipes/filter-by-search.pipe';
 import { OnlyNumbersDirective } from './core/directives/only-numbers.directive';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { OnlyNumbersDirective } from './core/directives/only-numbers.directive';
     SanitizeHtmlPipe,
     SearchBarComponent,
     FilterBySearchPipe,
-    OnlyNumbersDirective
+    OnlyNumbersDirective,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
