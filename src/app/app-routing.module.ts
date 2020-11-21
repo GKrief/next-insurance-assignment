@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-import {MoviesScreenComponent} from './movies/movies-screen/movies-screen.component';
+import {MoviesScreenComponent} from './movies/main-screen/movies-screen/movies-screen.component';
 import {MovieDetailsComponent} from './movies/movie-details/movie-details.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 

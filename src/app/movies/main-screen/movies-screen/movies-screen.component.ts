@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Movie} from '../../core/models/movie';
-import {MovieService} from '../movie.service';
-import {Search} from '../../core/models/search';
-import {SearchOptions} from '../../core/enums/search-options.enum';
+import {Movie} from '../../../core/models/movie';
+import {MovieService} from '../../movie.service';
+import {Search} from '../../../core/models/search';
+import {SearchOptions} from '../../../core/enums/search-options.enum';
 
 @Component({
   selector: 'app-movies-screen',
