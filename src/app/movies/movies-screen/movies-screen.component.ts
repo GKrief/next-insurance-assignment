@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Movie} from '../../core/models/movie';
 import {MovieService} from '../movie.service';
-import {first} from 'rxjs/operators';
+import {Search} from '../../core/models/search';
+import {SearchOptions} from '../../core/enums/search-options.enum';
 
 @Component({
   selector: 'app-movies-screen',
@@ -9,16 +10,19 @@ import {first} from 'rxjs/operators';
   styleUrls: ['./movies-screen.component.css']
 })
 export class MoviesScreenComponent implements OnInit {
-
-  movies$: Movie[];
+  userSearch: Search;
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.movieService.getMovies().pipe(first()).subscribe( moviesData => this.movies$ = moviesData);
+    this.userSearch = new Search(SearchOptions.ByTitle, '');
   }
 
-  onSearchUpdated(searchString: string): void {
-    this.movies$ = this.movieService.getMoviesBySearch(searchString);
+  getAllMovies(): Movie[] {
+    return this.movieService.movies$;
+  }
+
+  onSearchCriteriaUpdated($event: Search): void {
+    this.userSearch = $event;
   }
 }
