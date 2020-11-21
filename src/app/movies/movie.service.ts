@@ -27,7 +27,7 @@ export class MovieService {
   }
 
   private getMovies(): Observable<Movie[]> {
-    return this.http.get<any>(this.MOVIES_URL).pipe(
+    return this.http.get<Movie[]>(this.MOVIES_URL).pipe(
       map(response => {
         return response.map(movieData => this.createMovieInstance(movieData));
       })
