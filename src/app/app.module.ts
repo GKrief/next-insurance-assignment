@@ -14,6 +14,7 @@ import { SanitizeHtmlPipe } from './core/pipes/sanitize-html.pipe';
 import { SearchBarComponent } from './movies/search-bar/search-bar.component';
 import {FormsModule} from '@angular/forms';
 import { FilterBySearchPipe } from './core/pipes/filter-by-search.pipe';
+import { OnlyNumbersDirective } from './core/directives/only-numbers.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FilterBySearchPipe } from './core/pipes/filter-by-search.pipe';
     MovieLengthPipe,
     SanitizeHtmlPipe,
     SearchBarComponent,
-    FilterBySearchPipe
+    FilterBySearchPipe,
+    OnlyNumbersDirective
   ],
   imports: [
     BrowserModule,
