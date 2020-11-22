@@ -9,10 +9,10 @@ import {RouterModule} from '@angular/router';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {HttpClientModule} from '@angular/common/http';
 import { MovieCardComponent } from './movies/main-screen/movie-card/movie-card.component';
-import { MovieLengthPipe } from './core/pipes/movie-length.pipe';
+import { MovieLengthPipe } from './core/pipes/movie-length/movie-length.pipe';
 import { SearchBarComponent } from './movies/main-screen/search-bar/search-bar.component';
 import {FormsModule} from '@angular/forms';
-import { FilterBySearchPipe } from './core/pipes/filter-by-search.pipe';
+import { FilterBySearchPipe } from './core/pipes/filter-by-search/filter-by-search.pipe';
 import { OnlyNumbersDirective } from './core/directives/only-numbers.directive';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 

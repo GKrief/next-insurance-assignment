@@ -1,6 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {Movie} from '../models/movie';
-import {SearchOptions} from '../enums/search-options.enum';
+import {Movie} from '../../models/movie';
+import {SearchOptions} from '../../enums/search-options.enum';
 
 @Pipe({
   name: 'filterBySearch'
