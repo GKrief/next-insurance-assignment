@@ -45,7 +45,7 @@ export class MovieService {
     return encodedString
       .replace('&#39;', '\'')
       .replace('&quot;', '"')
-      .replace(/[<br><b></b>]/g, ' ');
+      .replace('<br>', '');
   }
 
   public getMovieById(movieId: string): Movie {
