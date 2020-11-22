@@ -40,11 +40,12 @@ export class MovieService {
       movieData[RUNTIME_HEADER], movieData[SMALL_IMG_HEADER], movieData[LARGE_IMG_HEADER]);
   }
 
+  // Some of the texts fetched from the server are with HTML encodings. Here I parse some of them, ideally it should be handled at server-side
   private parseHtmlEncodings(encodedString: string): string {
     return encodedString
       .replace('&#39;', '\'')
       .replace('&quot;', '"')
-      .replace('<br>', '');
+      .replace(/[<br><b></b>]/g, ' ');
   }
 
   public getMovieById(movieId: string): Movie {
