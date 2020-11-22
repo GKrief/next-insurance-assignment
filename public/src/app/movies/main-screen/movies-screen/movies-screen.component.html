@@ -1,0 +1,11 @@
+<app-search-bar
+  (searchEmitter)="onSearchCriteriaUpdated($event)">
+</app-search-bar>
+<div class="w-75 mx-auto">
+  <div class="row">
+    <app-movie-card *ngFor="let movie of getAllMovies() | filterBySearch: userSearch.searchOption: userSearch.searchValue" class="col-2 mt-3"
+                    [movieSmallImage]="movie.smallImageUrl" [movieTitle]="movie.title"
+                    [routerLink]="['/movies',movie.id]">
+    </app-movie-card>
+  </div>
+</div>
