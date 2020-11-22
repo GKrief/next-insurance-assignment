@@ -14,7 +14,7 @@ export class Movie {
     this.id = id;
     this.title = title;
     this.synopsis = synopsis;
-    this.rating = rating;
+    this.rating = !isNaN(rating) ? rating : 0;
     this.released = released;
     this.runtime = runtime;
     this.smallImageUrl = smallImageUrl;
