@@ -43,9 +43,8 @@ export class MovieService {
   // Some of the texts fetched from the server are with HTML encodings. Here I parse some of them, ideally it should be handled at server-side
   private parseHtmlEncodings(encodedString: string): string {
     return encodedString
-      .replace('&#39;', '\'')
-      .replace('&quot;', '"')
-      .replace('<br>', '');
+      .replace(/&#39;|&rsquo;/gi, '\'')
+      .replace(/<br>|<b>|<\/b>/gi, ' ');
   }
 
   public getMovieById(movieId: string): Movie {
